@@ -1,0 +1,499 @@
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #111827,
+            #1f2937
+        );
+
+    color: white;
+
+    padding: 25px;
+
+}
+
+
+.main-container {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    text-align: center;
+
+}
+
+
+/* --------------------------------
+   HEADER
+-------------------------------- */
+
+header {
+
+    margin-bottom: 25px;
+
+}
+
+
+header h1 {
+
+    font-size: 42px;
+
+    margin: 5px 0 10px;
+
+}
+
+
+header p {
+
+    font-size: 19px;
+
+    color: #d1d5db;
+
+}
+
+
+/* --------------------------------
+   INFORMATION
+-------------------------------- */
+
+.info-panel {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 20px;
+
+}
+
+
+.info-box {
+
+    min-width: 120px;
+
+    padding: 12px 20px;
+
+    background: rgba(
+        255,
+        255,
+        255,
+        0.1
+    );
+
+    border: 1px solid rgba(
+        255,
+        255,
+        255,
+        0.15
+    );
+
+    border-radius: 10px;
+
+}
+
+
+.info-box span {
+
+    display: block;
+
+    font-size: 13px;
+
+    color: #cbd5e1;
+
+    margin-bottom: 5px;
+
+}
+
+
+.info-box strong {
+
+    font-size: 20px;
+
+}
+
+
+/* --------------------------------
+   BUTTONS
+-------------------------------- */
+
+.buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 20px;
+
+}
+
+
+button {
+
+    border: none;
+
+    border-radius: 8px;
+
+    padding: 13px 20px;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    background: white;
+
+    color: #111827;
+
+    transition: 0.2s;
+
+}
+
+
+button:hover {
+
+    transform: translateY(-2px);
+
+}
+
+
+/* --------------------------------
+   INSTRUCTIONS
+-------------------------------- */
+
+.instructions {
+
+    color: #d1d5db;
+
+    margin-bottom: 20px;
+
+    line-height: 1.8;
+
+}
+
+
+/* --------------------------------
+   MAZE CONTAINER
+-------------------------------- */
+
+.maze-wrapper {
+
+    display: flex;
+
+    justify-content: center;
+
+    overflow-x: auto;
+
+    padding: 10px;
+
+}
+
+
+/* --------------------------------
+   MAZE
+-------------------------------- */
+
+#maze {
+
+    display: grid;
+
+    background: #000;
+
+    border: 5px solid #000;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0, 0, 0, 0.5);
+
+}
+
+
+/* --------------------------------
+   CELL
+-------------------------------- */
+
+.cell {
+
+    width: 25px;
+
+    height: 25px;
+
+    position: relative;
+
+    background: white;
+
+}
+
+
+/* --------------------------------
+   WALL
+-------------------------------- */
+
+.cell.wall {
+
+    background: #050505;
+
+}
+
+
+/* --------------------------------
+   START
+-------------------------------- */
+
+.cell.start {
+
+    background: #00c853;
+
+}
+
+
+.cell.start::after {
+
+    content: "S";
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    color: white;
+
+    font-weight: bold;
+
+    font-size: 13px;
+
+}
+
+
+/* --------------------------------
+   GOAL
+-------------------------------- */
+
+.cell.goal {
+
+    background: #ff1744;
+
+}
+
+
+.cell.goal::after {
+
+    content: "G";
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    color: white;
+
+    font-weight: bold;
+
+    font-size: 13px;
+
+}
+
+
+/* --------------------------------
+   PLAYER
+-------------------------------- */
+
+.cell.player {
+
+    background: #ff9800;
+
+    border-radius: 50%;
+
+    transform: scale(0.75);
+
+    z-index: 3;
+
+}
+
+
+/* --------------------------------
+   AI EXPLORED
+-------------------------------- */
+
+.cell.explored {
+
+    background: #b9e6ff;
+
+}
+
+
+/* --------------------------------
+   AI PATH
+-------------------------------- */
+
+.cell.ai-path {
+
+    background: #ff9800;
+
+}
+
+
+/* --------------------------------
+   MESSAGE
+-------------------------------- */
+
+.message {
+
+    margin: 25px auto;
+
+    max-width: 800px;
+
+    padding: 16px;
+
+    border-radius: 10px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.1
+        );
+
+    line-height: 1.7;
+
+    font-size: 17px;
+
+}
+
+
+/* --------------------------------
+   SEARCH INFORMATION
+-------------------------------- */
+
+.search-info {
+
+    max-width: 800px;
+
+    margin: 30px auto;
+
+    padding: 25px;
+
+    text-align: left;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+    border-radius: 12px;
+
+}
+
+
+.search-info h2 {
+
+    text-align: center;
+
+    margin-top: 0;
+
+}
+
+
+.search-info p {
+
+    line-height: 1.7;
+
+    color: #d1d5db;
+
+}
+
+
+.formula {
+
+    text-align: center;
+
+    background: #000;
+
+    padding: 15px;
+
+    border-radius: 8px;
+
+    margin: 20px 0;
+
+    font-size: 21px;
+
+}
+
+
+/* --------------------------------
+   MOBILE
+-------------------------------- */
+
+@media (max-width: 700px) {
+
+    body {
+
+        padding: 10px;
+
+    }
+
+
+    header h1 {
+
+        font-size: 30px;
+
+    }
+
+
+    .cell {
+
+        width: 18px;
+
+        height: 18px;
+
+    }
+
+
+    .cell.start::after,
+    .cell.goal::after {
+
+        font-size: 9px;
+
+    }
+
+
+    .info-box {
+
+        min-width: 90px;
+
+    }
+
+}

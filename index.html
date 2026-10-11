@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Maze Game - Best First Search
+    </title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="main-container">
+
+
+    <!-- TITLE -->
+
+    <header>
+
+        <h1>
+            🧩 Maze Game
+        </h1>
+
+        <p>
+            Route Finding Using
+            <strong>Best First Search</strong>
+        </p>
+
+    </header>
+
+
+    <!-- GAME INFORMATION -->
+
+    <section class="info-panel">
+
+        <div class="info-box">
+
+            <span>Moves</span>
+
+            <strong id="moves">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="info-box">
+
+            <span>Time</span>
+
+            <strong id="timer">
+                0
+            </strong>
+
+        </div>
+
+
+        <div class="info-box">
+
+            <span>Status</span>
+
+            <strong id="status">
+                Playing
+            </strong>
+
+        </div>
+
+
+        <div class="info-box">
+
+            <span>AI Path</span>
+
+            <strong id="pathLength">
+                -
+            </strong>
+
+        </div>
+
+    </section>
+
+
+    <!-- BUTTONS -->
+
+    <section class="buttons">
+
+        <button id="newMazeButton">
+            🔄 New Maze
+        </button>
+
+
+        <button id="hintButton" onclick="showOnlyHint()">
+            💡 Best First Hint
+        </button>
+
+
+        <button id="solveButton">
+            🤖 Solve with Best First Search
+        </button>
+
+    </section>
+
+
+    <!-- INSTRUCTIONS -->
+
+    <section class="instructions">
+
+        <p>
+            🎮 Use
+            <strong>Arrow Keys</strong>
+            or
+            <strong>W A S D</strong>
+            to move.
+        </p>
+
+        <p>
+            🟢 Start
+            &nbsp;&nbsp;
+            🔴 Goal
+            &nbsp;&nbsp;
+            🟠 Player
+        </p>
+
+    </section>
+
+
+    <!-- MAZE -->
+
+    <div class="maze-wrapper">
+
+        <div id="maze"></div>
+
+    </div>
+
+
+    <!-- MESSAGE -->
+
+    <div id="message"
+         class="message">
+
+        Find your way from
+        <strong>START</strong>
+        to
+        <strong>GOAL</strong>!
+
+    </div>
+
+
+    <!-- SEARCH INFORMATION -->
+
+    <section class="search-info">
+
+        <h2>
+            Best First Search
+        </h2>
+
+        <p>
+
+            Best First Search is a heuristic
+            search algorithm. It selects the
+            next cell based on its estimated
+            distance from the goal.
+
+        </p>
+
+
+        <div class="formula">
+
+            h(n) =
+            |row₁ - row₂|
+            +
+            |column₁ - column₂|
+
+        </div>
+
+
+        <p>
+
+            The project uses
+            <strong>Manhattan Distance</strong>
+            as the heuristic function.
+
+        </p>
+
+    </section>
+
+
+</div>
+
+
+<!-- JavaScript -->
+
+<script src="script.js?v=2"></script>
+
+
+</body>
+
+</html>
