@@ -1,0 +1,8 @@
+
+services:
+  - type: web
+    name: maze-best-first-search
+    runtime: python
+    plan: free
+    buildCommand: echo "No build required"
+    startCommand: python app.py
